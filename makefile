@@ -25,6 +25,14 @@ Rectangle.o: Rectangle.h Rectangle.cpp Shape.h Point2D.h
 Square.o: Square.h Square.cpp Rectangle.h Shape.h Point2D.h
 	g++ -c Square.cpp
 
+Drawing.o: Drawing.h Drawing.cpp List.h ListArray.h Shape.h Circle.h Square.h
+	g++ -c Drawing.cpp
+
+bin/testDrawing: testDrawing.cpp Drawing.o Square.o Rectangle.o Circle.o Shape.o Point2D.o
+	mkdir -p bin
+	g++ -c testDrawing.cpp
+	g++ -o bin/testDrawing testDrawing.o Drawing.o Square.o Rectangle.o Circle.o Shape.o Point2D.o
+
 bin/testSquare: testSquare.cpp Square.o Rectangle.o Shape.o Point2D.o
 	mkdir -p bin
 	g++ -c testSquare.cpp

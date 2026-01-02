@@ -22,6 +22,14 @@ Circle.o: Circle.h Circle.cpp Shape.h Point2D.h
 Rectangle.o: Rectangle.h Rectangle.cpp Shape.h Point2D.h
 	g++ -c Rectangle.cpp
 
+Square.o: Square.h Square.cpp Rectangle.h Shape.h Point2D.h
+	g++ -c Square.cpp
+
+bin/testSquare: testSquare.cpp Square.o Rectangle.o Shape.o Point2D.o
+	mkdir -p bin
+	g++ -c testSquare.cpp
+	g++ -o bin/testSquare testSquare.o Square.o Rectangle.o Shape.o Point2D.o
+
 bin/testRectangle: testRectangle.cpp Rectangle.o Shape.o Point2D.o
 	mkdir -p bin
 	g++ -c testRectangle.cpp

@@ -1,3 +1,7 @@
+.PHONY: all clean
+
+all: bin/testListArray bin/testNode bin/testListLinked bin/testDrawing bin/testSquare bin/testRectangle bin/testCircle bin/testPoint2D
+
 bin/testListArray: testListArray.cpp ListArray.h List.h
 	mkdir -p bin
 	g++ -o bin/testListArray testListArray.cpp ListArray.h
